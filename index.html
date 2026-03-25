@@ -205,27 +205,37 @@
             <div class="contact-inner">
                 <!-- Info cards rendered by script.js from content.js → contact.info -->
                 <div class="contact-info-stack fade-up"></div>
-                <form class="contact-form fade-up" id="contactForm" style="animation-delay:0.15s">
+                <form class="contact-form fade-up" id="contact-form" style="animation-delay:0.15s">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name" data-content="contact.form.nameLabel"></label>
-                            <input type="text" id="name" required>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
                             <label for="email" data-content="contact.form.emailLabel"></label>
-                            <input type="email" id="email" required>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="project" data-content="contact.form.projectLabel"></label>
-                        <input type="text" id="project">
+                        <input type="text" id="project" name="project"
+                            placeholder="e.g. AI chatbot, data pipeline, automation system...">
                     </div>
                     <div class="form-group">
                         <label for="message" data-content="contact.form.messageLabel"></label>
-                        <textarea id="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
                     </div>
+
+                    <!-- Honeypot -->
+                    <input type="text" id="company" name="company" style="display:none" tabindex="-1"
+                        autocomplete="off">
+
+                    <div class="form-group">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACv3ej5in6BYvOTa"></div>
+                    </div>
+
                     <button type="submit" class="btn btn-primary btn-lg btn-full"
-                        data-content="contact.form.submit"></button>
+                        data-content="contact.form.submit">Send</button>
                 </form>
             </div>
         </div>
@@ -251,13 +261,10 @@
         </div>
     </footer>
 
-    <!-- EmailJS SDK — used by script.js to send contact form emails -->
-    <!-- Public key is safe to expose; restrict domains in EmailJS dashboard → Security -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>emailjs.init('7IVv9Hf-BOV1o8bKk');</script>
-
     <!-- Content config — must load before script.js -->
     <script src="js/content.js"></script>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
     <!-- Main script — populates content, handles nav, scroll animations, form -->
     <script src="js/script.js"></script>

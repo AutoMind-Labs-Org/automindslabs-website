@@ -131,7 +131,7 @@
         const emailEl = document.getElementById('email');
         const projectEl = document.getElementById('project');
         const messageEl = document.getElementById('message');
-        const submitEl = document.querySelector('#contactForm button[type="submit"]');
+        const submitEl = document.querySelector('#contact-form button[type="submit"]');
         if (nameEl) nameEl.placeholder = f.namePlaceholder;
         if (emailEl) emailEl.placeholder = f.emailPlaceholder;
         if (projectEl) projectEl.placeholder = f.projectPlaceholder;
@@ -224,45 +224,53 @@
     processSlideEls.forEach(el => processObserver.observe(el));
 
     /* ── Contact form ── */
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = contactForm.querySelector('button[type="submit"]');
-            const original = btn.textContent;
 
-            btn.textContent = 'Sending…';
-            btn.disabled = true;
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
 
-            const params = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                project: document.getElementById('project').value,
-                message: document.getElementById('message').value,
+            const formData = new FormData(form);
+
+            const payload = {
+                name: formData.get('name')?.trim(),
+                email: formData.get('email')?.trim(),
+                project: formData.get('project')?.trim(),
+                message: formData.get('message')?.trim(),
+                company: formData.get('company')?.trim(),
+                turnstileToken: formData.get('cf-turnstile-response'),
             };
 
-            emailjs.send('service_4opb2as', 'template_5i7sefw', params)
-                .then(() => {
-                    btn.textContent = 'Message Sent ✓';
-                    btn.style.background = 'linear-gradient(135deg, #4bffc0, #1da87a)';
-                    btn.style.boxShadow = '0 4px 20px rgba(75,255,192,0.3)';
-                    setTimeout(() => {
-                        btn.textContent = original;
-                        btn.style.background = '';
-                        btn.style.boxShadow = '';
-                        btn.disabled = false;
-                        contactForm.reset();
-                    }, 3500);
-                })
-                .catch(() => {
-                    btn.textContent = 'Failed — try again';
-                    btn.style.background = 'linear-gradient(135deg, #ff4b4b, #a81d1d)';
-                    setTimeout(() => {
-                        btn.textContent = original;
-                        btn.style.background = '';
-                        btn.disabled = false;
-                    }, 3500);
+            try {
+                const response = await fetch('https://website-contact-worker.autominds.workers.dev', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
                 });
+
+                const data = await response.json();
+
+                if (data.ok) {
+                    alert('Message sent successfully.');
+                    form.reset();
+
+                    if (window.turnstile) {
+                        turnstile.reset();
+                    }
+                } else {
+                    alert(data.error || 'Failed to send message.');
+                }
+            } catch (error) {
+                alert('Network error. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send';
+            }
         });
     }
 
