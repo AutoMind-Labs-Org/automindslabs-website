@@ -16,9 +16,8 @@ window.CONTENT = {
     links: [
       { label: 'About', href: '#about' },
       { label: 'Services', href: '#services' },
-      { label: 'Technology Stack', href: '#skills' },
+      { label: 'Tech Stack', href: '#skills' },
       { label: 'How We Work', href: '#process' },
-      { label: 'Contact', href: '#contact' },
     ],
     cta: { label: 'Work with Us', href: '#contact' },
   },
@@ -43,10 +42,10 @@ window.CONTENT = {
     ],
     cta: { label: 'Work With Us →', href: '#contact' },
     stats: [
-      { icon: '⚡', title: 'Production-Ready', desc: 'Systems built to scale in real-world environments, not just demos' },
+      { icon: '⚡', title: 'Production-Ready', desc: 'Systems built to scale in real-world environments' },
       { icon: '🧠', title: 'AI-First', desc: 'Every solution is designed with intelligence at its core' },
       { icon: '🎯', title: 'Business-Aligned', desc: 'We start with your goals, not the technology' },
-      { icon: '☁️', title: 'Cloud-Native', desc: 'Built on scalable, modern cloud infrastructure' },
+      { icon: '☁️', title: 'Cloud-Native', desc: 'Built scalable solutions on your cloud infrastructure' },
     ],
   },
 
@@ -54,59 +53,59 @@ window.CONTENT = {
   services: {
     eyebrow: 'What We Build',
     heading: 'Services That <span class="gradient-text">Transform</span> Your Business',
-    sub: 'From intelligent automation to large-scale data pipelines — we design and deliver end-to-end AI systems tailored to your unique challenges.',
+    sub: 'From intelligent automation to large-scale data pipelines — We design and deliver end-to-end AI systems tailored to your unique challenges.',
     items: [
       {
         icon: '🤖',
         title: 'AI Agent Development',
         desc: 'Autonomous agents powered by large language models that handle complex workflows, decision-making, and multi-step tasks with minimal human intervention.',
-        tags: ['LangChain', 'LLMs', 'n8n'],
+        tags: ['LangGraph', 'LLM Providers', 'MCP', 'n8n'],
       },
       {
         icon: '💬',
         title: 'Chatbot Development',
-        desc: 'Production-ready conversational AI with deep business context, custom knowledge bases, and seamless integration into your existing platforms.',
-        tags: ['RAG', 'NLP', 'FastAPI'],
+        desc: 'Production-ready conversational AI with deep business context, custom auto-updated knowledge bases, and seamless integration into your existing platforms.',
+        tags: ['RAG', 'Hybrid Search', 'NLP', 'Monitoring', 'API'],
       },
       {
         icon: '⚙️',
-        title: 'ML Pipeline Engineering',
+        title: 'ML Engineering',
         desc: 'End-to-end machine learning pipelines — from data ingestion and preprocessing to model training, evaluation, and deployment at scale.',
-        tags: ['PyTorch', 'Airflow', 'Docker'],
+        tags: ['PyTorch', 'sklearn', 'Neural Networks'],
       },
       {
         icon: '📊',
         title: 'Data Engineering',
         desc: 'Robust data infrastructure with real-time streaming, transformation, and storage solutions that make your data reliable, accessible, and analysis-ready.',
-        tags: ['Kafka', 'Elasticsearch', 'NoSQL'],
+        tags: ['Kafka', 'Elasticsearch', 'Airflow', 'PySpark'],
       },
       {
         icon: '☁️',
         title: 'Cloud AI Infrastructure',
         desc: 'Scalable, secure AI deployment on Microsoft Azure. We architect and manage the cloud infrastructure your AI systems need to run reliably in production.',
-        tags: ['Azure', 'Docker', 'Kubernetes'],
+        tags: ['Azure', 'Docker'],
       },
       {
         icon: '🔍',
         title: 'Intelligent Document Processing',
         desc: 'Automated extraction, classification, and analysis of documents using OCR and AI — turning unstructured content into structured, actionable data.',
-        tags: ['Tesseract OCR', 'NLP', 'Python'],
+        tags: ['Tesseract OCR', 'NLP', 'LLM Base tools'],
       },
     ],
   },
 
-  /* ── Technology Stack ── */
+  /* ── Tech Stack ── */
   tech: {
-    eyebrow: 'Technology Stack',
+    eyebrow: 'Tech Stack',
     heading: 'Built With <span class="gradient-text">Industry-Leading</span> Tools',
     sub: 'A carefully selected set of technologies proven to deliver robust, scalable AI systems in production environments.',
     items: [
-      { icon: '🤖', name: 'OpenAI' },
-      { icon: '🔗', name: 'LangChain' },
-      { icon: '🐍', name: 'Python' },
-      { icon: '🔥', name: 'PyTorch' },
-      { icon: '☁️', name: 'Azure' },
-      { icon: '⚡', name: 'FastAPI' },
+      { icon: '🤖', name: 'LLM Providers<br><br>OpenAI, Anthropic, HuggingFace' },
+      { icon: '🔗', name: 'Agentic Orchestrator<br><br>LangGraph, n8n, crewai' },
+      { icon: '🐍', name: 'Programming<br><br>Python, SQL, PySpark' },
+      { icon: '🔥', name: 'ML Frameworks<br><br>PyTorch, TensorFlow' },
+      { icon: '☁️', name: 'Cloud Providers<br><br>Azure' },
+      { icon: '⚡', name: 'App Development<br><br>FastAPI, Flask' },
     ],
   },
 
@@ -129,12 +128,12 @@ window.CONTENT = {
       {
         num: '03',
         title: 'Build & Iterate',
-        desc: 'Rapid, iterative development with constant feedback loops. We build, test, and refine until the system performs exactly as intended — and handles edge cases gracefully.',
+        desc: 'Rapid, iterative development with constant feedback loops. We build, test, and refine until the system performs exactly as intended handling edge cases gracefully.',
       },
       {
         num: '04',
         title: 'Deploy & Scale',
-        desc: 'Seamless deployment to production cloud infrastructure with monitoring, logging, and the foundations needed to scale as your business grows.',
+        desc: 'Seamless deployment to production on-premises or cloud infrastructure with monitoring, logging, and the foundations needed to scale as your business grows.',
       },
     ],
   },
@@ -143,10 +142,10 @@ window.CONTENT = {
   contact: {
     eyebrow: 'Get In Touch',
     heading: 'Ready to Build Something <span class="gradient-text">Intelligent?</span>',
-    sub: 'Tell us about your project and we\'ll get back to you within 24 hours. No commitment needed — just a conversation about what\'s possible.',
+    sub: 'Tell us about your project and we will get back to you within 24 hours. No commitment needed — just a conversation about what is possible.',
     info: [
       { icon: '📍', label: 'Location', value: 'Based in Greece, working globally' },
-      { icon: '💼', label: 'Platform', value: 'Available on Upwork' },
+      { icon: '💼', label: 'Platform', value: 'Available on Upwork'},
       { icon: '⚡', label: 'Response Time', value: 'Responds within 24 hours' },
     ],
     form: {
@@ -173,7 +172,7 @@ window.CONTENT = {
           { label: 'About', href: '#about' },
           { label: 'Services', href: '#services' },
           { label: 'Tech Stack', href: '#skills' },
-          { label: 'Process', href: '#process' },
+          { label: 'How We Work', href: '#process' },
         ],
       },
       {
@@ -181,7 +180,7 @@ window.CONTENT = {
         links: [
           { label: 'AI Agents', href: '#services' },
           { label: 'Chatbots', href: '#services' },
-          { label: 'ML Pipelines', href: '#services' },
+          { label: 'ML Engineering', href: '#services' },
           { label: 'Data Engineering', href: '#services' },
         ],
       },
